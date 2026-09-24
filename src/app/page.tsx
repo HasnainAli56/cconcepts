@@ -84,7 +84,7 @@ const SERVICES_PREVIEW = [
     title: "Full-Service Dienstleistung",
     desc: "Alles aus einer Hand. Das volle Spektrum an Service und Betreuung: Ein fester Projektleiter steuert Ihr gesamtes Vorhaben von der ersten Idee bis zur schlüsselfertigen Übergabe vor Ort.",
     icon: Sparkles,
-    img: "/images/enhanced/service01.jpg",
+    img: "/images/enhanced/Produktion_barrel-2-1.jpg",
     link: "/full-service-leistungen#service",
     badge: "Fester Ansprechpartner",
     stats: "Rundum-Sorglos-Betreuung",
@@ -99,7 +99,7 @@ const FEATURED_PROJECTS = [
     img: "/images/enhanced/pepsi-kicker.jpg",
     direction: "left" as const,
     colSpan: "col-span-12 md:col-span-6 lg:col-span-4",
-    aspect: "aspect-[16/10] max-h-52",
+    aspect: "aspect-[16/10] max-h-40 sm:max-h-44",
     badge: "Turnierstandard Sonderbau",
     desc: "Vollständig folierter Profi-Kickertisch mit LED-Spielfeldbeleuchtung und individuellem Ballauswurf für Gastro- und Eventpromotions.",
   },
@@ -110,7 +110,7 @@ const FEATURED_PROJECTS = [
     img: "/images/enhanced/punica-mofa.jpg",
     direction: "right" as const,
     colSpan: "col-span-12 md:col-span-6 lg:col-span-4",
-    aspect: "aspect-[16/10] max-h-52",
+    aspect: "aspect-[16/10] max-h-40 sm:max-h-44",
     badge: "Fahrbereites Unikat",
     desc: "Mobiles Werbefahrzeug im nostalgischen Marken-Look, fahrbereit umgebaut für nationale Sommerkampagnen und Messen.",
   },
@@ -121,7 +121,7 @@ const FEATURED_PROJECTS = [
     img: "/images/enhanced/Retro-coffee-bike1-1.jpg",
     direction: "left" as const,
     colSpan: "col-span-12 md:col-span-6 lg:col-span-4",
-    aspect: "aspect-[16/10] max-h-52",
+    aspect: "aspect-[16/10] max-h-40 sm:max-h-44",
     badge: "Autarke Siebträger",
     desc: "Autarkes Dreirad mit professioneller Siebträgermaschine und vollflächigem Branding für Messestände und Guerilla-Marketing.",
   },
@@ -132,7 +132,7 @@ const FEATURED_PROJECTS = [
     img: "/images/enhanced/rockstar-snowboard.jpg",
     direction: "right" as const,
     colSpan: "col-span-12 md:col-span-6 lg:col-span-4",
-    aspect: "aspect-[16/10] max-h-52",
+    aspect: "aspect-[16/10] max-h-40 sm:max-h-44",
     badge: "UV-Spezialprint & Sammlerstück",
     desc: "Exklusive Marken-Snowboards mit speziellem High-End-Belag und fotorealistischem UV-Grafikdruck für Wintersport-Gewinnspiele.",
   },
@@ -143,7 +143,7 @@ const FEATURED_PROJECTS = [
     img: "/images/enhanced/Gaming.jpg",
     direction: "left" as const,
     colSpan: "col-span-12 md:col-span-6 lg:col-span-4",
-    aspect: "aspect-[16/10] max-h-52",
+    aspect: "aspect-[16/10] max-h-40 sm:max-h-44",
     badge: "Interaktive Sensorik",
     desc: "Digitaler und haptischer Gamification-Simulator für Jugend- und Extremsport-Events mit Sofortgewinn-Ausgabe.",
   },
@@ -154,7 +154,7 @@ const FEATURED_PROJECTS = [
     img: "/images/enhanced/barrel.jpg",
     direction: "right" as const,
     colSpan: "col-span-12 md:col-span-6 lg:col-span-4",
-    aspect: "aspect-[16/10] max-h-52",
+    aspect: "aspect-[16/10] max-h-40 sm:max-h-44",
     badge: "Wetterfeste Veredelung",
     desc: "Upgecycelte Event-Ölfässer mit Echtholz-Tischplatte, integrierter LED-Beleuchtung und robuster Pulverbeschichtung.",
   },
@@ -247,7 +247,7 @@ export default function HomePage() {
             <Reveal direction="right" className="lg:col-span-5 relative">
               <div className="relative mx-auto max-w-md lg:max-w-none">
                 <div className="rounded-3xl overflow-hidden border border-brand-black/15 bg-white p-3 shadow-xl">
-                  <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden bg-neutral-900">
+                  <div className="relative aspect-[16/10] max-h-56 sm:max-h-64 w-full rounded-2xl overflow-hidden bg-neutral-900">
                     <Image
                       src="/images/enhanced/pepsi-kicker.jpg"
                       alt="C-Concepts Werbeartikel & Sonderkonstruktionen"
@@ -518,62 +518,59 @@ export default function HomePage() {
           </Reveal>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
-          {SERVICES_PREVIEW.map((item, idx) => {
-            const isLeft = idx % 2 === 0;
-            return (
-              <Reveal
-                key={item.step}
-                direction={isLeft ? "left" : "right"}
-                delay={0.15 * (idx % 2)}
-                className="h-full"
-              >
-                <div className="group p-7 sm:p-8 rounded-3xl bg-white border border-brand-black/15 hover:border-brand-accent/50 hover:shadow-xl transition-all duration-300 flex flex-col justify-between h-full">
-                  <div className="space-y-5">
-                    <div className="flex items-center justify-between">
-                      <span className="font-mono text-3xl font-extrabold text-brand-accent">
-                        {item.step}
-                      </span>
-                      <div className="w-12 h-12 rounded-xl bg-brand-black/5 flex items-center justify-center text-brand-black group-hover:bg-brand-accent group-hover:text-white transition-colors duration-300">
-                        <item.icon className="w-6 h-6" />
-                      </div>
-                    </div>
-
-                    {/* Enhanced Real Studio Card */}
-                    <PremiumImageCard
-                      src={item.img}
-                      alt={item.title}
-                      aspect="aspect-[16/10]"
-                      badge={item.badge}
-                      client={item.stats}
-                      className="shadow-sm border border-brand-black/10"
-                    />
-
-                    {/* Content Details */}
-                    <div className="space-y-2 pt-1">
-                      <h3 className="font-display text-xl sm:text-2xl font-bold text-brand-black group-hover:text-brand-accent transition-colors">
-                        {item.title}
-                      </h3>
-                      <p className="text-sm sm:text-base text-brand-black/75 leading-relaxed font-normal">
-                        {item.desc}
-                      </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {SERVICES_PREVIEW.map((item, idx) => (
+            <Reveal
+              key={item.step}
+              direction="up"
+              delay={0.1 * idx}
+              className="h-full"
+            >
+              <div className="group p-5 sm:p-5 rounded-2xl bg-white border border-brand-black/15 hover:border-brand-accent/50 hover:shadow-xl transition-all duration-300 flex flex-col justify-between h-full">
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono text-2xl font-extrabold text-brand-accent">
+                      {item.step}
+                    </span>
+                    <div className="w-10 h-10 rounded-xl bg-brand-black/5 flex items-center justify-center text-brand-black group-hover:bg-brand-accent group-hover:text-white transition-colors duration-300">
+                      <item.icon className="w-5 h-5" />
                     </div>
                   </div>
 
-                  <div className="pt-5 border-t border-brand-black/10 mt-5 flex items-center justify-between">
-                    <span className="text-xs font-mono text-brand-black/50 font-semibold">C-Concepts Simmern</span>
-                    <Link
-                      href={item.link}
-                      className="inline-flex items-center gap-2 text-sm font-bold text-brand-black group-hover:text-brand-accent transition-colors"
-                    >
-                      <span>Mehr zu {item.title}</span>
-                      <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-                    </Link>
+                  {/* Compact Enhanced Card matching screenshot */}
+                  <PremiumImageCard
+                    src={item.img}
+                    alt={item.title}
+                    aspect="aspect-[16/10] max-h-36 sm:max-h-40"
+                    badge={item.badge}
+                    client={item.stats}
+                    className="shadow-xs border border-brand-black/10 rounded-xl"
+                  />
+
+                  {/* Content Details */}
+                  <div className="space-y-1.5 pt-1">
+                    <h3 className="font-display text-base sm:text-lg font-bold text-brand-black group-hover:text-brand-accent transition-colors leading-snug">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-brand-black/75 leading-relaxed font-normal line-clamp-3">
+                      {item.desc}
+                    </p>
                   </div>
                 </div>
-              </Reveal>
-            );
-          })}
+
+                <div className="pt-4 border-t border-brand-black/10 mt-4 flex items-center justify-between">
+                  <span className="text-[11px] font-mono text-brand-black/50 font-semibold">Simmern</span>
+                  <Link
+                    href={item.link}
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-black group-hover:text-brand-accent transition-colors"
+                  >
+                    <span>Details</span>
+                    <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </div>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </section>
 

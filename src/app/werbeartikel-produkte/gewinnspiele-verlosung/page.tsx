@@ -61,7 +61,7 @@ export default function GewinnspieleVerlosungPage() {
               <PremiumImageCard
                 src={item.image}
                 alt={item.title}
-                aspect="aspect-[16/10] max-h-52"
+                aspect="aspect-[16/10] max-h-40 sm:max-h-44"
                 badge={item.client}
                 title={item.title}
                 subtitle={item.desc}

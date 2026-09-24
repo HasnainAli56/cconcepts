@@ -22,7 +22,7 @@ interface PremiumImageCardProps {
 export default function PremiumImageCard({
   src,
   alt,
-  aspect = "aspect-[16/10] max-h-52 sm:max-h-56",
+  aspect = "aspect-[16/10] max-h-40 sm:max-h-44",
   badge,
   client,
   title,
@@ -44,7 +44,7 @@ export default function PremiumImageCard({
       )}
     >
       {/* 100% Clean Compact Image Container */}
-      <div className={cn("relative w-full overflow-hidden bg-neutral-50", aspect)}>
+      <div className={cn("relative w-full overflow-hidden bg-neutral-50 rounded-t-2xl", aspect)}>
         <Image
           src={src}
           alt={alt}

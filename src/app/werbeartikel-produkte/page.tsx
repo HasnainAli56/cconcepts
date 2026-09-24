@@ -249,7 +249,7 @@ export default function ProduktePage() {
                   {/* Ultra-HD Photo Container */}
                   <div
                     onClick={() => setSelectedProduct(item)}
-                    className="relative aspect-[16/10] max-h-52 w-full overflow-hidden bg-neutral-950 cursor-pointer"
+                    className="relative aspect-[16/10] max-h-40 sm:max-h-44 w-full overflow-hidden bg-neutral-950 cursor-pointer rounded-t-2xl"
                   >
                     <Image
                       src={item.image}
