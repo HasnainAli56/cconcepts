@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useInView } from "framer-motion";
 
 interface CounterProps {
   from?: number;
@@ -15,45 +14,88 @@ interface CounterProps {
 export default function Counter({
   from = 0,
   to,
-  duration = 1.5,
+  duration = 1.6,
   suffix = "",
   prefix = "",
   className = "",
 }: CounterProps) {
-  const [count, setCount] = useState(from);
+  // Start with target value so SSR and static HTML never show zero
+  const [displayValue, setDisplayValue] = useState(to);
   const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const hasAnimated = useRef(false);
 
   useEffect(() => {
-    if (!isInView) return;
+    const node = ref.current;
+    if (!node || hasAnimated.current) return;
 
-    let start = from;
-    const end = to;
-    const totalFrames = Math.round(duration * 60);
-    let frame = 0;
+    let animationFrameId: number;
 
-    const timer = setInterval(() => {
-      frame++;
-      // ease-out quad
-      const progress = frame / totalFrames;
-      const easeProgress = 1 - (1 - progress) * (1 - progress);
-      const current = Math.floor(start + (end - start) * easeProgress);
+    const startAnimation = () => {
+      if (hasAnimated.current) return;
+      hasAnimated.current = true;
 
-      setCount(current);
+      const startTime = performance.now();
+      const durationMs = duration * 1000;
 
-      if (frame >= totalFrames) {
-        clearInterval(timer);
-        setCount(end);
-      }
-    }, 1000 / 60);
+      const step = (now: number) => {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / durationMs, 1);
+        // easeOutExpo for ultra-smooth ramp
+        const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+        const current = Math.round(from + (to - from) * ease);
 
-    return () => clearInterval(timer);
-  }, [isInView, from, to, duration]);
+        setDisplayValue(current);
+
+        if (progress < 1) {
+          animationFrameId = requestAnimationFrame(step);
+        } else {
+          setDisplayValue(to);
+        }
+      };
+
+      setDisplayValue(from);
+      animationFrameId = requestAnimationFrame(step);
+    };
+
+    if (typeof window !== "undefined" && "IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              startAnimation();
+              observer.disconnect();
+            }
+          });
+        },
+        { threshold: 0.05, rootMargin: "0px 0px 80px 0px" }
+      );
+
+      observer.observe(node);
+
+      // Safety fallback: if not triggered within 1.5s, ensure target value is displayed
+      const safetyTimer = setTimeout(() => {
+        if (!hasAnimated.current) {
+          setDisplayValue(to);
+        }
+      }, 1500);
+
+      return () => {
+        observer.disconnect();
+        clearTimeout(safetyTimer);
+        if (animationFrameId) cancelAnimationFrame(animationFrameId);
+      };
+    } else {
+      startAnimation();
+      return () => {
+        if (animationFrameId) cancelAnimationFrame(animationFrameId);
+      };
+    }
+  }, [from, to, duration]);
 
   return (
     <span ref={ref} className={className}>
       {prefix}
-      {count.toLocaleString("de-DE")}
+      {displayValue.toLocaleString("de-DE")}
       {suffix}
     </span>
   );
