@@ -32,7 +32,7 @@ export default function PremiumImageCard({
   onClick,
   hoverZoom = true,
 }: PremiumImageCardProps) {
-  const hasBottomContent = Boolean(title || subtitle);
+  const hasBottomContent = Boolean(title || subtitle || badge || client);
 
   return (
     <div
@@ -43,7 +43,7 @@ export default function PremiumImageCard({
         className
       )}
     >
-      {/* 100% Clean Image Container - No blocking text overlays */}
+      {/* 100% Clean Image Container - Zero badges or overlays covering the picture */}
       <div className={cn("relative w-full overflow-hidden bg-neutral-100", aspect)}>
         <Image
           src={src}
@@ -56,28 +56,28 @@ export default function PremiumImageCard({
             hoverZoom && "group-hover:scale-105"
           )}
         />
-        
-        {/* Subtle top subtle badge only if badge exists, minimal and unobtrusive */}
-        {(badge || client) && (
-          <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2 pointer-events-none">
-            {badge && (
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm text-brand-black text-[11px] font-mono font-bold uppercase tracking-wider shadow-sm border border-black/5">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand-accent" />
-                {badge}
-              </span>
-            )}
-            {client && (
-              <span className="px-2.5 py-1 rounded-full bg-black/70 backdrop-blur-sm text-white text-[11px] font-mono tracking-wider ml-auto">
-                {client}
-              </span>
-            )}
-          </div>
-        )}
       </div>
 
-      {/* Clean content BELOW the image - never covers the photo */}
+      {/* Content strictly BELOW the photo - never covers the photo */}
       {hasBottomContent && (
-        <div className="p-5 sm:p-6 space-y-2 bg-white">
+        <div className="p-5 sm:p-6 space-y-2.5 bg-white border-t border-brand-black/5">
+          {/* Badge & Meta bar below photo */}
+          {(badge || client) && (
+            <div className="flex items-center justify-between gap-2">
+              {badge && (
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-brand-black/5 text-brand-black text-[11px] font-mono font-bold uppercase tracking-wider">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-accent" />
+                  {badge}
+                </span>
+              )}
+              {client && (
+                <span className="text-[11px] font-mono text-brand-black/60 tracking-wider font-semibold ml-auto">
+                  {client}
+                </span>
+              )}
+            </div>
+          )}
+
           <div className="flex items-start justify-between gap-3">
             <div className="space-y-1">
               {title && (
@@ -86,7 +86,7 @@ export default function PremiumImageCard({
                 </h4>
               )}
               {subtitle && (
-                <p className="text-brand-black/70 text-xs sm:text-sm leading-relaxed line-clamp-2">
+                <p className="text-brand-black/70 text-xs sm:text-sm leading-relaxed line-clamp-2 font-normal">
                   {subtitle}
                 </p>
               )}

@@ -70,7 +70,7 @@ const SERVICES = [
       "Etikettierung nach GS1- und Handelsstandards",
     ],
     icon: Box,
-    img: "/images/enhanced/konfektionierung.jpg",
+    img: "/images/enhanced/konfektion-1.jpg",
     stats: "100% Sicht- und Qualitätskontrolle",
   },
   {
@@ -87,7 +87,7 @@ const SERVICES = [
       "Höchste Flexibilität bei kurzfristigen Event-Anpassungen",
     ],
     icon: Sparkles,
-    img: "/images/enhanced/perfect-match.jpg",
+    img: "/images/enhanced/service01.jpg",
     stats: "15+ Jahre Partnerschaften mit Großkunden",
   },
 ];

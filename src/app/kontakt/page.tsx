@@ -269,8 +269,8 @@ export default function KontaktPage() {
                     Andreas Sauer
                   </h3>
                 </div>
-                <div className="w-14 h-14 rounded-2xl bg-brand-black text-white flex items-center justify-center font-display font-black text-lg shadow-md">
-                  AS
+                <div className="w-12 h-12 rounded-2xl bg-brand-black/5 text-brand-accent flex items-center justify-center shadow-xs">
+                  <Phone className="w-5 h-5" />
                 </div>
               </div>
 
@@ -306,8 +306,8 @@ export default function KontaktPage() {
                     Ralf Weisbrod
                   </h3>
                 </div>
-                <div className="w-14 h-14 rounded-2xl bg-brand-black text-white flex items-center justify-center font-display font-black text-lg shadow-md">
-                  RW
+                <div className="w-12 h-12 rounded-2xl bg-brand-black/5 text-brand-accent flex items-center justify-center shadow-xs">
+                  <Phone className="w-5 h-5" />
                 </div>
               </div>
 
