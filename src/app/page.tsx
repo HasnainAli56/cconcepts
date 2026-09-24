@@ -99,7 +99,7 @@ const FEATURED_PROJECTS = [
     img: "/images/enhanced/pepsi-kicker.jpg",
     direction: "left" as const,
     colSpan: "col-span-12 md:col-span-6 lg:col-span-4",
-    aspect: "aspect-[16/10] max-h-40 sm:max-h-44",
+    aspect: "h-44 sm:h-48",
     badge: "Turnierstandard Sonderbau",
     desc: "Vollständig folierter Profi-Kickertisch mit LED-Spielfeldbeleuchtung und individuellem Ballauswurf für Gastro- und Eventpromotions.",
   },
@@ -110,7 +110,7 @@ const FEATURED_PROJECTS = [
     img: "/images/enhanced/punica-mofa.jpg",
     direction: "right" as const,
     colSpan: "col-span-12 md:col-span-6 lg:col-span-4",
-    aspect: "aspect-[16/10] max-h-40 sm:max-h-44",
+    aspect: "h-44 sm:h-48",
     badge: "Fahrbereites Unikat",
     desc: "Mobiles Werbefahrzeug im nostalgischen Marken-Look, fahrbereit umgebaut für nationale Sommerkampagnen und Messen.",
   },
@@ -121,7 +121,7 @@ const FEATURED_PROJECTS = [
     img: "/images/enhanced/Retro-coffee-bike1-1.jpg",
     direction: "left" as const,
     colSpan: "col-span-12 md:col-span-6 lg:col-span-4",
-    aspect: "aspect-[16/10] max-h-40 sm:max-h-44",
+    aspect: "h-44 sm:h-48",
     badge: "Autarke Siebträger",
     desc: "Autarkes Dreirad mit professioneller Siebträgermaschine und vollflächigem Branding für Messestände und Guerilla-Marketing.",
   },
@@ -132,7 +132,7 @@ const FEATURED_PROJECTS = [
     img: "/images/enhanced/rockstar-snowboard.jpg",
     direction: "right" as const,
     colSpan: "col-span-12 md:col-span-6 lg:col-span-4",
-    aspect: "aspect-[16/10] max-h-40 sm:max-h-44",
+    aspect: "h-44 sm:h-48",
     badge: "UV-Spezialprint & Sammlerstück",
     desc: "Exklusive Marken-Snowboards mit speziellem High-End-Belag und fotorealistischem UV-Grafikdruck für Wintersport-Gewinnspiele.",
   },
@@ -143,7 +143,7 @@ const FEATURED_PROJECTS = [
     img: "/images/enhanced/Gaming.jpg",
     direction: "left" as const,
     colSpan: "col-span-12 md:col-span-6 lg:col-span-4",
-    aspect: "aspect-[16/10] max-h-40 sm:max-h-44",
+    aspect: "h-44 sm:h-48",
     badge: "Interaktive Sensorik",
     desc: "Digitaler und haptischer Gamification-Simulator für Jugend- und Extremsport-Events mit Sofortgewinn-Ausgabe.",
   },
@@ -154,7 +154,7 @@ const FEATURED_PROJECTS = [
     img: "/images/enhanced/barrel.jpg",
     direction: "right" as const,
     colSpan: "col-span-12 md:col-span-6 lg:col-span-4",
-    aspect: "aspect-[16/10] max-h-40 sm:max-h-44",
+    aspect: "h-44 sm:h-48",
     badge: "Wetterfeste Veredelung",
     desc: "Upgecycelte Event-Ölfässer mit Echtholz-Tischplatte, integrierter LED-Beleuchtung und robuster Pulverbeschichtung.",
   },
@@ -247,14 +247,14 @@ export default function HomePage() {
             <Reveal direction="right" className="lg:col-span-5 relative">
               <div className="relative mx-auto max-w-md lg:max-w-none">
                 <div className="rounded-3xl overflow-hidden border border-brand-black/15 bg-white p-3 shadow-xl">
-                  <div className="relative aspect-[16/10] max-h-56 sm:max-h-64 w-full rounded-2xl overflow-hidden bg-neutral-900">
+                  <div className="relative aspect-[16/10] max-h-56 sm:max-h-64 w-full rounded-2xl overflow-hidden bg-slate-50 border border-brand-black/5 flex items-center justify-center p-2">
                     <Image
                       src="/images/enhanced/pepsi-kicker.jpg"
                       alt="C-Concepts Werbeartikel & Sonderkonstruktionen"
                       fill
                       priority
                       sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover object-center"
+                      className="object-contain p-1.5"
                     />
                   </div>
                   <div className="p-4 space-y-1 bg-white">
@@ -526,8 +526,9 @@ export default function HomePage() {
               delay={0.1 * idx}
               className="h-full"
             >
-              <div className="group p-5 sm:p-5 rounded-2xl bg-white border border-brand-black/15 hover:border-brand-accent/50 hover:shadow-xl transition-all duration-300 flex flex-col justify-between h-full">
+              <div className="group p-5 rounded-2xl bg-white border border-brand-black/15 hover:border-brand-accent/50 hover:shadow-xl transition-all duration-300 flex flex-col justify-between h-full">
                 <div className="space-y-4">
+                  {/* Step & Icon */}
                   <div className="flex items-center justify-between">
                     <span className="font-mono text-2xl font-extrabold text-brand-accent">
                       {item.step}
@@ -537,18 +538,23 @@ export default function HomePage() {
                     </div>
                   </div>
 
-                  {/* Compact Enhanced Card matching screenshot */}
-                  <PremiumImageCard
-                    src={item.img}
-                    alt={item.title}
-                    aspect="aspect-[16/10] max-h-36 sm:max-h-40"
-                    badge={item.badge}
-                    client={item.stats}
-                    className="shadow-xs border border-brand-black/10 rounded-xl"
-                  />
+                  {/* 100% Full Uncut Picture Container */}
+                  <div className="relative w-full h-40 sm:h-44 rounded-xl overflow-hidden bg-slate-50 border border-brand-black/10 flex items-center justify-center p-2">
+                    <Image
+                      src={item.img}
+                      alt={item.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                      className="object-contain p-1 rounded-lg transition-transform duration-500 ease-out group-hover:scale-105"
+                    />
+                  </div>
 
-                  {/* Content Details */}
-                  <div className="space-y-1.5 pt-1">
+                  {/* Clean, well-spaced Content Details */}
+                  <div className="space-y-2 pt-1">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-brand-accent/10 text-brand-accent text-xs font-semibold">
+                      <span className="w-1.5 h-1.5 rounded-full bg-brand-accent" />
+                      {item.badge}
+                    </span>
                     <h3 className="font-display text-base sm:text-lg font-bold text-brand-black group-hover:text-brand-accent transition-colors leading-snug">
                       {item.title}
                     </h3>
@@ -558,11 +564,11 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-brand-black/10 mt-4 flex items-center justify-between">
-                  <span className="text-[11px] font-mono text-brand-black/50 font-semibold">Simmern</span>
+                <div className="pt-4 border-t border-brand-black/10 mt-5 flex items-center justify-between">
+                  <span className="text-xs font-medium text-brand-black/60">{item.stats}</span>
                   <Link
                     href={item.link}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-black group-hover:text-brand-accent transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-accent hover:underline"
                   >
                     <span>Details</span>
                     <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />

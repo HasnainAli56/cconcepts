@@ -246,39 +246,36 @@ export default function ProduktePage() {
                 className="group flex flex-col justify-between rounded-3xl overflow-hidden bg-white border-2 border-brand-black/10 hover:border-brand-accent/50 hover:shadow-2xl transition-all duration-500"
               >
                 <div>
-                  {/* Ultra-HD Photo Container */}
+                  {/* 100% Full Uncut Photo Container */}
                   <div
                     onClick={() => setSelectedProduct(item)}
-                    className="relative aspect-[16/10] max-h-40 sm:max-h-44 w-full overflow-hidden bg-neutral-950 cursor-pointer rounded-t-2xl"
+                    className="relative h-44 sm:h-48 w-full overflow-hidden bg-slate-50 cursor-pointer rounded-t-2xl flex items-center justify-center p-2 border-b border-brand-black/5"
                   >
                     <Image
                       src={item.image}
                       alt={item.title}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className="object-cover group-hover:scale-108 transition-all duration-700 ease-out"
+                      className="object-contain p-1.5 transition-transform duration-500 ease-out group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/10" />
 
-                    <div className="absolute top-5 left-5 right-5 flex items-center justify-between gap-2">
-                      <span className="px-4 py-1.5 rounded-full bg-black/75 backdrop-blur-md text-white text-xs sm:text-sm font-mono font-semibold tracking-wider border border-white/15">
-                        {item.client}
-                      </span>
-                      <span className="w-2.5 h-2.5 rounded-full bg-brand-accent animate-pulse" />
-                    </div>
-
-                    <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                      <div className="px-6 py-3 rounded-full bg-white text-brand-black text-sm font-bold flex items-center gap-2 shadow-2xl transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                        <Eye className="w-4 h-4 text-brand-accent" />
-                        <span>Details & Spezifikationen</span>
+                    <div className="absolute inset-0 bg-brand-accent/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <div className="px-4 py-2 rounded-full bg-white text-brand-black text-xs font-bold flex items-center gap-1.5 shadow-lg border border-brand-black/10 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                        <Eye className="w-3.5 h-3.5 text-brand-accent" />
+                        <span>Details ansehen</span>
                       </div>
                     </div>
                   </div>
 
                   {/* Card Content with Balanced Typography */}
-                  <div className="p-6 sm:p-7 space-y-2.5">
-                    <div className="text-xs font-mono uppercase text-brand-accent font-bold tracking-wide">
-                      {item.category}
+                  <div className="p-5 sm:p-6 space-y-2.5">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="text-xs font-semibold uppercase text-brand-accent tracking-wide">
+                        {item.category}
+                      </span>
+                      <span className="text-xs font-medium text-brand-black/60">
+                        {item.client}
+                      </span>
                     </div>
                     <h3
                       onClick={() => setSelectedProduct(item)}
@@ -340,16 +337,16 @@ export default function ProduktePage() {
                 <X className="w-5 h-5" />
               </button>
 
-              <div className="relative aspect-[16/9] w-full bg-brand-black">
+              <div className="relative aspect-[16/10] max-h-96 w-full bg-slate-50 border-b border-brand-black/10 flex items-center justify-center p-6">
                 <Image
                   src={selectedProduct.image}
                   alt={selectedProduct.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 768px"
-                  className="object-cover"
+                  className="object-contain p-3"
                 />
                 <div className="absolute bottom-4 left-4">
-                  <span className="px-3.5 py-1.5 rounded-full bg-brand-black/80 backdrop-blur-md text-white text-xs font-mono uppercase tracking-wider">
+                  <span className="px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md text-brand-black text-xs font-mono font-bold uppercase tracking-wider border border-brand-black/15 shadow-sm">
                     {selectedProduct.client}
                   </span>
                 </div>
