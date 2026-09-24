@@ -79,7 +79,7 @@ export default function KonstruktionenPage() {
               <PremiumImageCard
                 src={item.image}
                 alt={item.title}
-                aspect="aspect-[4/3]"
+                aspect="aspect-[16/10] max-h-52"
                 badge={item.client}
                 title={item.title}
                 subtitle={item.desc}

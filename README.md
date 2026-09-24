@@ -7,7 +7,7 @@ A bespoke, agency-grade redesign of **C-Concepts Vertriebs GmbH** (Simmern, Germ
 - **Bespoke Agency Design Tokens**: 
   - Brand Near-Black: `#0E0E0E`
   - Brand Off-White: `#F7F5F2`
-  - Brand Accent: `#D63B1F` (Warm Red/Orange)
+  - Brand Accent: `#005496` (Warm Red/Orange)
 - **High-Performance Typography**: Self-hosted geometric display headings (*Plus Jakarta Sans*) and body text (*Inter*) with zero layout shift.
 - **Micro-Interactions & Motion**:
   - Lenis buttery-smooth scrolling with `prefers-reduced-motion` detection.

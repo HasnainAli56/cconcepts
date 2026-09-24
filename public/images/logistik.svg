@@ -6,8 +6,8 @@
       <stop offset="100%" stop-color="#0A0A0A"/>
     </linearGradient>
     <radialGradient id="accentGlow" cx="20%" cy="30%" r="60%">
-      <stop offset="0%" stop-color="#D63B1F" stop-opacity="0.25"/>
-      <stop offset="100%" stop-color="#D63B1F" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#005496" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#005496" stop-opacity="0"/>
     </radialGradient>
     <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
       <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#FFFFFF" stroke-opacity="0.04" stroke-width="1"/>
@@ -20,14 +20,14 @@
   <rect width="1200" height="800" fill="url(#grid)"/>
 
   <!-- Geometric Abstract Shape -->
-  <circle cx="850" cy="400" r="280" fill="#D63B1F" fill-opacity="0.08"/>
-  <rect x="700" y="250" width="300" height="300" rx="32" fill="none" stroke="#D63B1F" stroke-opacity="0.3" stroke-width="2" transform="rotate(15 850 400)"/>
+  <circle cx="850" cy="400" r="280" fill="#005496" fill-opacity="0.08"/>
+  <rect x="700" y="250" width="300" height="300" rx="32" fill="none" stroke="#005496" stroke-opacity="0.3" stroke-width="2" transform="rotate(15 850 400)"/>
   <rect x="740" y="290" width="220" height="220" rx="24" fill="#FFFFFF" fill-opacity="0.03" transform="rotate(-10 850 400)"/>
 
   <!-- Branding Badge -->
   <g transform="translate(100, 100)">
-    <rect width="140" height="32" rx="16" fill="#D63B1F" fill-opacity="0.2" stroke="#D63B1F" stroke-width="1"/>
-    <text x="70" y="21" fill="#D63B1F" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" text-anchor="middle" letter-spacing="1">C-CONCEPTS</text>
+    <rect width="140" height="32" rx="16" fill="#005496" fill-opacity="0.2" stroke="#005496" stroke-width="1"/>
+    <text x="70" y="21" fill="#005496" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" text-anchor="middle" letter-spacing="1">C-CONCEPTS</text>
   </g>
 
   <!-- Content -->
@@ -37,5 +37,5 @@
   </g>
 
   <!-- Bottom Accent Line -->
-  <rect x="100" y="580" width="80" height="4" rx="2" fill="#D63B1F"/>
+  <rect x="100" y="580" width="80" height="4" rx="2" fill="#005496"/>
 </svg>

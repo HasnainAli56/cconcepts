@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --background: #F7F5F2;
-  --foreground: #0E0E0E;
-  --accent: #D63B1F;
+  --background: #FFFFFF;
+  --foreground: #0D1824;
+  --accent: #005496;
 }
 
 @layer base {
   * {
-    border-color: rgba(14, 14, 14, 0.08);
+    border-color: rgba(0, 84, 150, 0.10);
   }
   
   body {
@@ -23,7 +23,7 @@
   }
 
   ::selection {
-    background-color: #D63B1F;
+    background-color: #005496;
     color: #FFFFFF;
   }
 }

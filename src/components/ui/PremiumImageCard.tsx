@@ -22,7 +22,7 @@ interface PremiumImageCardProps {
 export default function PremiumImageCard({
   src,
   alt,
-  aspect = "aspect-[16/10]",
+  aspect = "aspect-[16/10] max-h-52 sm:max-h-56",
   badge,
   client,
   title,
@@ -38,13 +38,13 @@ export default function PremiumImageCard({
     <div
       onClick={onClick}
       className={cn(
-        "group overflow-hidden rounded-2xl bg-white border border-brand-black/10 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-accent/40 flex flex-col justify-between",
+        "group overflow-hidden rounded-2xl bg-white border border-brand-black/10 shadow-sm transition-all duration-300 hover:shadow-md hover:border-brand-accent/40 flex flex-col justify-between",
         onClick && "cursor-pointer",
         className
       )}
     >
-      {/* 100% Clean Image Container - Zero badges or overlays covering the picture */}
-      <div className={cn("relative w-full overflow-hidden bg-neutral-100", aspect)}>
+      {/* 100% Clean Compact Image Container */}
+      <div className={cn("relative w-full overflow-hidden bg-neutral-50", aspect)}>
         <Image
           src={src}
           alt={alt}
@@ -58,14 +58,14 @@ export default function PremiumImageCard({
         />
       </div>
 
-      {/* Content strictly BELOW the photo - never covers the photo */}
+      {/* Content strictly BELOW the photo - compact padding */}
       {hasBottomContent && (
-        <div className="p-5 sm:p-6 space-y-2.5 bg-white border-t border-brand-black/5">
+        <div className="p-4 sm:p-5 space-y-2 bg-white border-t border-brand-black/5">
           {/* Badge & Meta bar below photo */}
           {(badge || client) && (
             <div className="flex items-center justify-between gap-2">
               {badge && (
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-brand-black/5 text-brand-black text-[11px] font-mono font-bold uppercase tracking-wider">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-brand-accent/10 text-brand-accent text-[11px] font-mono font-bold uppercase tracking-wider">
                   <span className="w-1.5 h-1.5 rounded-full bg-brand-accent" />
                   {badge}
                 </span>
@@ -81,7 +81,7 @@ export default function PremiumImageCard({
           <div className="flex items-start justify-between gap-3">
             <div className="space-y-1">
               {title && (
-                <h4 className="font-display font-bold text-brand-black text-lg sm:text-xl leading-snug group-hover:text-brand-accent transition-colors">
+                <h4 className="font-display font-bold text-brand-black text-base sm:text-lg leading-snug group-hover:text-brand-accent transition-colors">
                   {title}
                 </h4>
               )}

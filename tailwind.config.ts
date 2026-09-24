@@ -13,20 +13,21 @@ const config: Config = {
         foreground: "var(--foreground)",
         surface: {
           light: "#FFFFFF",
-          subtle: "#F0ECE6",
-          dark: "#161616",
-          darker: "#0A0A0A",
+          subtle: "#F5F8FB",
+          dark: "#141D26",
+          darker: "#0B1118",
         },
         brand: {
-          black: "#0E0E0E",
-          white: "#F7F5F2",
-          accent: "#D63B1F",
-          "accent-hover": "#BC3117",
-          "accent-light": "#FAECE9",
+          black: "#0D1824",
+          white: "#F8FAFC",
+          accent: "#005496",
+          "accent-hover": "#003D70",
+          "accent-light": "#EBF3FA",
+          gray: "#718096",
         },
         border: {
-          subtle: "rgba(14, 14, 14, 0.08)",
-          dark: "rgba(247, 245, 242, 0.12)",
+          subtle: "rgba(0, 84, 150, 0.10)",
+          dark: "rgba(255, 255, 255, 0.12)",
         }
       },
       fontFamily: {
